@@ -16,30 +16,30 @@ export default class UserList extends React.Component
         }
     }
 
+    componentDidMount() {
+        this.fetchUserList()
+      }
+
     fetchUserList()
     {
         fetch(`https://api.github.com/search/repositories?sort=stars&q=javascript&per_page=10&page=${this.state.pageNum}`)
-          .then(res => res.json())
-          .then(
+        .then(res => res.json())
+        .then(
             (result) => {
-              this.setState({
-                  users: result.items,
-                  total_count: result.total_count,
-                  isLoaded: true
-              })
+            this.setState({
+                users: result.items,
+                total_count: result.total_count,
+                isLoaded: true
+            })
             },
 
             (error) => {
-              this.setState({
+            this.setState({
                 isLoaded: true,
                 error
-              });
+            });
             }
-          )
-    }
-
-    componentDidMount() {
-        this.fetchUserList()
+        )
       }
 
     render() {

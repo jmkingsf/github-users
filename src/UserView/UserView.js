@@ -21,7 +21,6 @@ function UserView() {
     const onChange = event => setValue(event.target.value);
     const increment = () => setValue(parseInt(pageNum) + 1);
     const decrement = () => setValue(parseInt(pageNum) - 1);
-    // const [state, dispatch] = useReducer(reducer, initialState);
 
     return (
         <div>
